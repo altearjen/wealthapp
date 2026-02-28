@@ -39,8 +39,8 @@ const incomeData = [
 const ChartTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: '#1e2130', border: '1px solid #2a2d3e', borderRadius: 10, padding: '10px 14px' }}>
-      <p style={{ color: '#8b8fa8', fontSize: 12, marginBottom: 6 }}>{label}</p>
+    <div style={{ background: '#FFFFFF', border: '1px solid #E8DDD0', borderRadius: 10, padding: '10px 14px', boxShadow: '0 2px 8px rgba(61,43,31,0.1)' }}>
+      <p style={{ color: '#9C8B7E', fontSize: 12, marginBottom: 6 }}>{label}</p>
       {payload.map((p, i) => (
         <p key={i} style={{ color: p.color || p.fill, fontSize: 13, fontWeight: 600 }}>
           {p.name}: {typeof p.value === 'number' ? '$' + p.value.toFixed(0) : p.value}
@@ -73,7 +73,7 @@ export default function Reports() {
               </div>
             ))}
           </div>
-          <div style={{ padding: '14px 16px', background: 'rgba(99,102,241,0.08)', borderRadius: 10, border: '1px solid rgba(99,102,241,0.2)' }}>
+          <div style={{ padding: '14px 16px', background: 'rgba(201,100,66,0.06)', borderRadius: 10, border: '1px solid rgba(201,100,66,0.2)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 4 }}>Estimated Tax Liability</div>
@@ -88,10 +88,10 @@ export default function Reports() {
           <div className="card-title">Gain Distribution</div>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 12 }}>
             <PieChart width={140} height={140}>
-              <Pie data={taxData.slice(0, 3)} cx={65} cy={65} innerRadius={42} outerRadius={65} dataKey="value" strokeWidth={2} stroke="#1e2130">
-                <Cell fill="#ef4444"/>
-                <Cell fill="#22c55e"/>
-                <Cell fill="#3b82f6"/>
+              <Pie data={taxData.slice(0, 3)} cx={65} cy={65} innerRadius={42} outerRadius={65} dataKey="value" strokeWidth={2} stroke="#FAF7F2">
+                <Cell fill="#A63228"/>
+                <Cell fill="#2D6A4F"/>
+                <Cell fill="#3B6FB7"/>
               </Pie>
             </PieChart>
           </div>
@@ -113,11 +113,11 @@ export default function Reports() {
         <div style={{ height: 220 }}>
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={incomeData} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-              <XAxis dataKey="month" tick={{ fill: '#555872', fontSize: 11 }} axisLine={false} tickLine={false}/>
-              <YAxis tick={{ fill: '#555872', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={v => '$' + v} width={44}/>
+              <XAxis dataKey="month" tick={{ fill: '#9C8B7E', fontSize: 11 }} axisLine={false} tickLine={false}/>
+              <YAxis tick={{ fill: '#9C8B7E', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={v => '$' + v} width={44}/>
               <Tooltip content={<ChartTooltip />}/>
-              <Bar dataKey="dividends" name="Dividends" fill="#6366f1" radius={[3, 3, 0, 0]} stackId="a"/>
-              <Bar dataKey="interest" name="Interest" fill="#3b82f6" radius={[3, 3, 0, 0]} stackId="a"/>
+              <Bar dataKey="dividends" name="Dividends" fill="#C96442" radius={[3, 3, 0, 0]} stackId="a"/>
+              <Bar dataKey="interest" name="Interest" fill="#3B6FB7" radius={[3, 3, 0, 0]} stackId="a"/>
             </BarChart>
           </ResponsiveContainer>
         </div>

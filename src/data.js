@@ -68,13 +68,13 @@ export const monthlyReturns = [
 ];
 
 export const allocationData = [
-  { name: 'Technology', value: 35.2, color: '#6366f1' },
-  { name: 'Financials', value: 20.8, color: '#3b82f6' },
-  { name: 'ETFs', value: 18.4, color: '#22c55e' },
-  { name: 'Healthcare', value: 12.1, color: '#f59e0b' },
-  { name: 'Consumer Disc.', value: 7.5, color: '#8b5cf6' },
-  { name: 'Energy', value: 4.2, color: '#ef4444' },
-  { name: 'Cash', value: 1.8, color: '#64748b' },
+  { name: 'Technology', value: 35.2, color: '#C96442' },
+  { name: 'Financials', value: 20.8, color: '#3B6FB7' },
+  { name: 'ETFs', value: 18.4, color: '#2D6A4F' },
+  { name: 'Healthcare', value: 12.1, color: '#C4892A' },
+  { name: 'Consumer Disc.', value: 7.5, color: '#8B5E3C' },
+  { name: 'Energy', value: 4.2, color: '#A63228' },
+  { name: 'Cash', value: 1.8, color: '#9C8B7E' },
 ];
 
 export const transactions = [

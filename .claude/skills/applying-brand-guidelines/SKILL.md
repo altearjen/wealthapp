@@ -9,35 +9,39 @@ This skill ensures all generated documents adhere to corporate brand standards f
 
 ## Brand Identity
 
-### Company: Acme Corporation
-**Tagline**: "Innovation Through Excellence"
-**Industry**: Technology Solutions
+### Company: WealthOS 2.0
+**Tagline**: "Your wealth, clearly."
+**Industry**: Wealth Management
 
 ## Visual Standards
 
 ### Color Palette
 
 **Primary Colors**:
-- **Acme Blue**: #0066CC (RGB: 0, 102, 204) - Headers, primary buttons
-- **Acme Navy**: #003366 (RGB: 0, 51, 102) - Text, accents
-- **White**: #FFFFFF - Backgrounds, reverse text
+- **WealthOS Coral**: #C96442 (RGB: 201, 100, 66) - CTAs, primary buttons, active states
+- **WealthOS Brown**: #3D2B1F (RGB: 61, 43, 31) - Primary text, headings
+- **WealthOS Cream**: #FAF7F2 (RGB: 250, 247, 242) - Primary backgrounds
+- **WealthOS Tan**: #E8DDD0 (RGB: 232, 221, 208) - Secondary surfaces, borders
 
 **Secondary Colors**:
-- **Success Green**: #28A745 (RGB: 40, 167, 69) - Positive metrics
-- **Warning Amber**: #FFC107 (RGB: 255, 193, 7) - Cautions
-- **Error Red**: #DC3545 (RGB: 220, 53, 69) - Negative values
-- **Neutral Gray**: #6C757D (RGB: 108, 117, 125) - Secondary text
+- **Success Green**: #2D6A4F (RGB: 45, 106, 79) - Positive metrics, gains
+- **Loss Red**: #A63228 (RGB: 166, 50, 40) - Negative values, losses
+- **Warning Amber**: #C4892A (RGB: 196, 137, 42) - Cautions, alerts
+- **Muted Stone**: #9C8B7E (RGB: 156, 139, 126) - Secondary text
+- **Hover Cream**: #F0EBE3 (RGB: 240, 235, 227) - Hover states, alternating rows
 
 ### Typography
 
-**Primary Font Family**: Segoe UI, system-ui, -apple-system, sans-serif
+**Display Font**: DM Serif Display - Headings, page titles, stat values
+**UI Font**: DM Sans - Body text, labels, navigation, buttons
+**Number Rendering**: DM Sans with font-variant-numeric: tabular-nums
 
 **Font Hierarchy**:
-- **H1**: 32pt, Bold, Acme Blue
-- **H2**: 24pt, Semibold, Acme Navy
-- **H3**: 18pt, Semibold, Acme Navy
-- **Body**: 11pt, Regular, Acme Navy
-- **Caption**: 9pt, Regular, Neutral Gray
+- **H1**: 32pt, DM Serif Display, WealthOS Brown
+- **H2**: 24pt, DM Serif Display, WealthOS Brown
+- **H3**: 18pt, DM Sans Semibold, WealthOS Brown
+- **Body**: 14px, DM Sans Regular, WealthOS Brown
+- **Caption**: 12px, DM Sans Regular, Muted Stone
 
 ### Logo Usage
 
@@ -104,9 +108,9 @@ This skill ensures all generated documents adhere to corporate brand standards f
 ### Standard Phrases
 
 **Opening Statements**:
-- "At Acme Corporation, we..."
-- "Our commitment to innovation..."
-- "Delivering excellence through..."
+- "At WealthOS, we..."
+- "Your portfolio, your clarity..."
+- "Delivering transparency through..."
 
 **Closing Statements**:
 - "Thank you for your continued partnership."
@@ -147,6 +151,9 @@ Never use:
 - Rainbow colors or gradients
 - Animations or transitions (unless specified)
 - Competitor branding or references
+- Dark backgrounds or dark mode patterns
+- Cool-toned grays or blue-grays
+- Neon or high-saturation accent colors
 
 ## Application Instructions
 

@@ -4,8 +4,8 @@ import { portfolioStats, performanceData, allocationData, accounts, fmt, fmtK, f
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
-    <div style={{ background: '#1e2130', border: '1px solid #2a2d3e', borderRadius: 10, padding: '10px 14px' }}>
-      <p style={{ color: '#8b8fa8', fontSize: 12, marginBottom: 6 }}>{label}</p>
+    <div style={{ background: '#FFFFFF', border: '1px solid #E8DDD0', borderRadius: 10, padding: '10px 14px', boxShadow: '0 2px 8px rgba(61,43,31,0.1)' }}>
+      <p style={{ color: '#9C8B7E', fontSize: 12, marginBottom: 6 }}>{label}</p>
       {payload.map((p, i) => (
         <p key={i} style={{ color: p.color, fontSize: 13, fontWeight: 600 }}>
           {p.name}: {fmtK(p.value)}
@@ -62,20 +62,20 @@ export default function Portfolio() {
             <AreaChart data={performanceData} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#C96442" stopOpacity={0.2}/>
+                  <stop offset="95%" stopColor="#C96442" stopOpacity={0}/>
                 </linearGradient>
                 <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.15}/>
-                  <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#3B6FB7" stopOpacity={0.12}/>
+                  <stop offset="95%" stopColor="#3B6FB7" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <XAxis dataKey="date" tick={{ fill: '#555872', fontSize: 11 }} axisLine={false} tickLine={false} interval={3}/>
-              <YAxis tick={{ fill: '#555872', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={v => '$' + (v/1e6).toFixed(1) + 'M'} width={54}/>
+              <XAxis dataKey="date" tick={{ fill: '#9C8B7E', fontSize: 11 }} axisLine={false} tickLine={false} interval={3}/>
+              <YAxis tick={{ fill: '#9C8B7E', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={v => '$' + (v/1e6).toFixed(1) + 'M'} width={54}/>
               <Tooltip content={<CustomTooltip />}/>
-              <Legend wrapperStyle={{ fontSize: 12, color: '#8b8fa8' }}/>
-              <Area type="monotone" dataKey="portfolio" name="Portfolio" stroke="#6366f1" fill="url(#pg)" strokeWidth={2} dot={false}/>
-              <Area type="monotone" dataKey="benchmark" name="S&P 500" stroke="#3b82f6" fill="url(#bg)" strokeWidth={2} dot={false}/>
+              <Legend wrapperStyle={{ fontSize: 12, color: '#9C8B7E' }}/>
+              <Area type="monotone" dataKey="portfolio" name="Portfolio" stroke="#C96442" fill="url(#pg)" strokeWidth={2} dot={false}/>
+              <Area type="monotone" dataKey="benchmark" name="S&P 500" stroke="#3B6FB7" fill="url(#bg)" strokeWidth={2} dot={false}/>
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -87,7 +87,7 @@ export default function Portfolio() {
           <div className="card-title">Allocation</div>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
             <PieChart width={160} height={160}>
-              <Pie data={allocationData} cx={75} cy={75} innerRadius={48} outerRadius={72} dataKey="value" strokeWidth={2} stroke="#1e2130">
+              <Pie data={allocationData} cx={75} cy={75} innerRadius={48} outerRadius={72} dataKey="value" strokeWidth={2} stroke="#FAF7F2">
                 {allocationData.map((e, i) => <Cell key={i} fill={e.color}/>)}
               </Pie>
             </PieChart>

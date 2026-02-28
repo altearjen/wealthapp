@@ -50,11 +50,11 @@ export default function Markets() {
                   <AreaChart data={idx.up ? miniData.up : miniData.down} margin={{ top: 2, right: 2, left: 2, bottom: 2 }}>
                     <defs>
                       <linearGradient id={`mini-${idx.name}`} x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor={idx.up ? '#22c55e' : '#ef4444'} stopOpacity={0.3}/>
-                        <stop offset="100%" stopColor={idx.up ? '#22c55e' : '#ef4444'} stopOpacity={0}/>
+                        <stop offset="0%" stopColor={idx.up ? '#2D6A4F' : '#A63228'} stopOpacity={0.3}/>
+                        <stop offset="100%" stopColor={idx.up ? '#2D6A4F' : '#A63228'} stopOpacity={0}/>
                       </linearGradient>
                     </defs>
-                    <Area type="monotone" dataKey="v" stroke={idx.up ? '#22c55e' : '#ef4444'} fill={`url(#mini-${idx.name})`} strokeWidth={1.5} dot={false}/>
+                    <Area type="monotone" dataKey="v" stroke={idx.up ? '#2D6A4F' : '#A63228'} fill={`url(#mini-${idx.name})`} strokeWidth={1.5} dot={false}/>
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
@@ -129,11 +129,11 @@ export default function Markets() {
                         <AreaChart data={m.change >= 0 ? miniData.up : miniData.down} margin={{ top: 2, right: 2, left: 2, bottom: 2 }}>
                           <defs>
                             <linearGradient id={`trend-${m.symbol}`} x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor={m.change >= 0 ? '#22c55e' : '#ef4444'} stopOpacity={0.3}/>
-                              <stop offset="100%" stopColor={m.change >= 0 ? '#22c55e' : '#ef4444'} stopOpacity={0}/>
+                              <stop offset="0%" stopColor={m.change >= 0 ? '#2D6A4F' : '#A63228'} stopOpacity={0.3}/>
+                              <stop offset="100%" stopColor={m.change >= 0 ? '#2D6A4F' : '#A63228'} stopOpacity={0}/>
                             </linearGradient>
                           </defs>
-                          <Area type="monotone" dataKey="v" stroke={m.change >= 0 ? '#22c55e' : '#ef4444'} fill={`url(#trend-${m.symbol})`} strokeWidth={1.5} dot={false}/>
+                          <Area type="monotone" dataKey="v" stroke={m.change >= 0 ? '#2D6A4F' : '#A63228'} fill={`url(#trend-${m.symbol})`} strokeWidth={1.5} dot={false}/>
                         </AreaChart>
                       </ResponsiveContainer>
                     </div>
