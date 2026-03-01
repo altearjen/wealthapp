@@ -116,7 +116,7 @@ export default function Markets() {
                   <td><span className="badge badge-purple">{m.sector}</span></td>
                   <td className="td-right" style={{ fontWeight: 600 }}>${m.price.toFixed(2)}</td>
                   <td className="td-right">
-                    <span className={m.change >= 0 ? 'down-text' : 'up-text'}>
+                    <span className={m.change >= 0 ? 'up-text' : 'down-text'}>
                       {m.change >= 0 ? '+' : ''}{m.change.toFixed(2)} ({fmtPct(m.changePct)})
                     </span>
                   </td>
