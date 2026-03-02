@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { transactions, fmt } from '../data';
+import { transactions as initialTransactions, fmt, buildTransaction } from '../data';
+import TransactionForm from '../components/TransactionForm';
 
 const typeColors = {
   Buy: 'badge-green',
@@ -16,8 +17,16 @@ export default function Transactions() {
   const [search, setSearch] = useState('');
   const [type, setType] = useState('All');
   const [account, setAccount] = useState('All Accounts');
+  const [txList, setTxList] = useState(initialTransactions);
+  const [showForm, setShowForm] = useState(false);
 
-  const filtered = transactions.filter(t => {
+  const handleAddTransaction = (formData) => {
+    const newTx = buildTransaction(formData, txList);
+    setTxList(prev => [newTx, ...prev]);
+    setShowForm(false);
+  };
+
+  const filtered = txList.filter(t => {
     const matchType = type === 'All' || t.type === type;
     const matchAccount = account === 'All Accounts' || t.account === account;
     const matchSearch = !search ||
@@ -26,10 +35,10 @@ export default function Transactions() {
     return matchType && matchAccount && matchSearch;
   });
 
-  const totalBuys = transactions.filter(t => t.type === 'Buy').reduce((s, t) => s + t.amount, 0);
-  const totalSells = transactions.filter(t => t.type === 'Sell').reduce((s, t) => s + t.amount, 0);
-  const totalDividends = transactions.filter(t => t.type === 'Dividend').reduce((s, t) => s + t.amount, 0);
-  const totalDeposits = transactions.filter(t => t.type === 'Deposit').reduce((s, t) => s + t.amount, 0);
+  const totalBuys = txList.filter(t => t.type === 'Buy').reduce((s, t) => s + t.amount, 0);
+  const totalSells = txList.filter(t => t.type === 'Sell').reduce((s, t) => s + t.amount, 0);
+  const totalDividends = txList.filter(t => t.type === 'Dividend').reduce((s, t) => s + t.amount, 0);
+  const totalDeposits = txList.filter(t => t.type === 'Deposit').reduce((s, t) => s + t.amount, 0);
 
   return (
     <div>
@@ -40,9 +49,16 @@ export default function Transactions() {
         </div>
         <div style={{ display: 'flex', gap: 10 }}>
           <button className="btn btn-secondary">Export CSV</button>
-          <button className="btn btn-primary">+ New Transaction</button>
+          <button className="btn btn-primary" onClick={() => setShowForm(true)}>+ New Transaction</button>
         </div>
       </div>
+
+      {showForm && (
+        <TransactionForm
+          onSubmit={handleAddTransaction}
+          onCancel={() => setShowForm(false)}
+        />
+      )}
 
       {/* SUMMARY STATS */}
       <div className="grid-4">
@@ -50,28 +66,28 @@ export default function Transactions() {
           <div className="card-title">Total Buys</div>
           <div className="stat-value" style={{ color: 'var(--green)', fontSize: 22 }}>{fmt(totalBuys)}</div>
           <div className="stat-label" style={{ marginTop: 6 }}>
-            {transactions.filter(t => t.type === 'Buy').length} transactions
+            {txList.filter(t => t.type === 'Buy').length} transactions
           </div>
         </div>
         <div className="card">
           <div className="card-title">Total Sells</div>
           <div className="stat-value" style={{ color: 'var(--red)', fontSize: 22 }}>{fmt(totalSells)}</div>
           <div className="stat-label" style={{ marginTop: 6 }}>
-            {transactions.filter(t => t.type === 'Sell').length} transactions
+            {txList.filter(t => t.type === 'Sell').length} transactions
           </div>
         </div>
         <div className="card">
           <div className="card-title">Dividends Received</div>
           <div className="stat-value" style={{ color: 'var(--blue)', fontSize: 22 }}>{fmt(totalDividends)}</div>
           <div className="stat-label" style={{ marginTop: 6 }}>
-            {transactions.filter(t => t.type === 'Dividend').length} payments
+            {txList.filter(t => t.type === 'Dividend').length} payments
           </div>
         </div>
         <div className="card">
           <div className="card-title">Net Deposits</div>
           <div className="stat-value" style={{ fontSize: 22 }}>{fmt(totalDeposits)}</div>
           <div className="stat-label" style={{ marginTop: 6 }}>
-            {transactions.filter(t => t.type === 'Deposit').length} deposits
+            {txList.filter(t => t.type === 'Deposit').length} deposits
           </div>
         </div>
       </div>
