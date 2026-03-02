@@ -129,6 +129,23 @@ export const researchItems = [
 ];
 
 export const fmt = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 }).format(n);
+
+export function buildTransaction(formData, existingTransactions) {
+  const nextId = Math.max(...existingTransactions.map(t => t.id)) + 1;
+  const total = formData.shares * formData.price;
+  return {
+    id: nextId,
+    date: formData.date,
+    type: formData.type,
+    symbol: formData.symbol.toUpperCase(),
+    name: formData.name,
+    shares: formData.shares,
+    price: formData.price,
+    amount: total.toFixed(2),
+    status: 'Completed',
+    account: formData.account,
+  };
+}
 export const fmtK = (n) => {
   if (n >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
   if (n >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
