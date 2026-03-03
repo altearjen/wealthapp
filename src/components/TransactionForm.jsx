@@ -38,7 +38,7 @@ export default function TransactionForm({ onSubmit, onCancel }) {
       ...form,
       shares: form.shares ? parseFloat(form.shares) : null,
       price: form.price ? parseFloat(form.price) : null,
-      symbol: form.type === 'Deposit' ? null : form.symbol,
+      symbol: form.type === 'Buy' ? null : form.symbol,
     };
 
     onSubmit(prepared);
